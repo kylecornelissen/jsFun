@@ -60,8 +60,8 @@ describe("PROTOTYPES", () => {
         color: "tuxedo"
       }])
     })
-  }), describe("Club Prompts", () => {
-    it("membersBelongingToClubs", () => {
+  }), describe.only("Club Prompts", () => {
+    it.only("membersBelongingToClubs", () => {
       const e = clubPrompts.membersBelongingToClubs({
         Louisa: ["Drama", "Art"],
         Pam: ["Drama", "Chess", "Newspaper"],
@@ -87,8 +87,8 @@ describe("PROTOTYPES", () => {
         Christie: ['Newspaper', 'FBLA']
       })
     })
-  }), describe("Mod Prompts", () => {
-    it("studentsPerMod", () => {
+  }), describe.only("Mod Prompts", () => {
+    it.only("studentsPerMod", () => {
       const e = modPrompts.studentsPerMod();
       expect(e).to.deep.equal([{
         mod: 1,
@@ -104,7 +104,7 @@ describe("PROTOTYPES", () => {
         studentsPerInstructor: 8
       }])
     })
-  }), describe("Cake Prompts", () => {
+  }), describe.only("Cake Prompts", () => {
     it("stockPerCake", () => {
       const e = cakePrompts.stockPerCake();
       expect(e).to.deep.equal([{
@@ -156,7 +156,7 @@ describe("PROTOTYPES", () => {
     }), it("totalInventory", () => {
       const e = cakePrompts.totalInventory();
       expect(e).to.deep.equal(59)
-    }), it("allToppings", () => {
+    }), it.only("allToppings", () => {
       const e = cakePrompts.allToppings();
       expect(e).to.deep.equal(["dutch process cocoa", "toasted sugar", "smoked sea salt", "berries", "edible flowers", "mint", "cranberry", "crystallized ginger"])
     }), it("groceryList", () => {

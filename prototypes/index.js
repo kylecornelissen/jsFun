@@ -11,11 +11,6 @@ const { constellations, stars } = require('./datasets/astronomy');
 const { weapons, characters } = require('./datasets/ultima');
 const { dinosaurs, humans, movies } = require('./datasets/dinosaurs');
 
-
-
-
-
-
 // SINGLE DATASETS
 // =================================================================
 
@@ -61,27 +56,17 @@ const kittyPrompts = {
 
     const result = kitties.map(kitty => {
       kitty.age += 2;
-      return kitty
+      return kitty;
     });
     return result;
   }
 };
 
-
-
-
-
-
 // ---------------------------------------------------------------------------
 // ---------------------------------------------------------------------------
 // ---------------------------------------------------------------------------
 // ---------------------------------------------------------------------------
 // ---------------------------------------------------------------------------
-
-
-
-
-
 
 // DATASET: clubs from ./datasets/clubs
 const clubPrompts = {
@@ -93,8 +78,16 @@ const clubPrompts = {
     //   Pam: ['Drama', 'Art', 'Chess'],
     //   ...etc
     // }
-
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = {};
+    clubs.forEach(club => {
+      club.members.forEach(member => {
+        if (!result[member]) {
+          result[member] = [club.club];
+        } else {
+          result[member].push(club.club);
+        }
+      });
+    });
     return result;
 
     // Annotation:
@@ -102,21 +95,11 @@ const clubPrompts = {
   }
 };
 
-
-
-
-
-
 // ---------------------------------------------------------------------------
 // ---------------------------------------------------------------------------
 // ---------------------------------------------------------------------------
 // ---------------------------------------------------------------------------
 // ---------------------------------------------------------------------------
-
-
-
-
-
 
 // DATASET: mods from ./datasets/mods
 const modPrompts = {
@@ -130,18 +113,18 @@ const modPrompts = {
     //   { mod: 4, studentsPerInstructor: 8 }
     // ]
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = mods.map(mod => {
+      return {
+        'mod': mod.mod,
+        'studentsPerInstructor': mod.students/mod.instructors
+      };
+    });
     return result;
 
     // Annotation:
     // Write your annotation here as a comment
   }
 };
-
-
-
-
-
 
 // ---------------------------------------------------------------------------
 // ---------------------------------------------------------------------------
@@ -216,7 +199,18 @@ const cakePrompts = {
     // every cake in the dataset e.g.
     // ['dutch process cocoa', 'toasted sugar', 'smoked sea salt', 'berries', ..etc]
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    // const result = []
+    // cakes.forEach(cake => {
+    //   cake.toppings.forEach(topping => {
+    //     (!result.includes(topping)) && result.push(topping)
+    //   });
+    // });
+    let result = cakes.reduce((acc, cake) => {
+      cake.toppings.forEach(topping => {
+        (!acc.includes(topping)) && (acc.push(topping));
+      });
+      return acc;
+    }, []);
     return result;
 
     // Annotation:
