@@ -25,7 +25,10 @@ const kittyPrompts = {
 
     // Return an array of just the names of kitties who are orange e.g.
     // ['Tiger', 'Snickers']
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = [];
+    const orangeKittens = kitties.filter(kitty => {
+      (kitty.color === 'orange') && result.push(kitty.name);
+    });
     return result;
 
     // Annotation:
@@ -35,7 +38,7 @@ const kittyPrompts = {
   sortByAge() {
     // Sort the kitties by their age
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = kitties.sort((a, b) => b.age - a.age);
     return result;
 
     // Annotation:
@@ -56,7 +59,10 @@ const kittyPrompts = {
     // },
     // ...etc]
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = kitties.map(kitty => {
+      kitty.age += 2;
+      return kitty
+    });
     return result;
   }
 };
@@ -362,7 +368,7 @@ const nationalParksPrompts = {
     // Annotation:
     // Write your annotation here as a comment
   }
-}
+};
 
 
 

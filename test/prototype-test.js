@@ -17,11 +17,11 @@ const {
 } = require("../prototypes/index");
 
 describe("PROTOTYPES", () => {
-  describe("Kitty Prompts", () => {
-    it("orangeKittyNames", () => {
+  describe.only("Kitty Prompts", () => {
+    it.only("orangeKittyNames", () => {
       const e = kittyPrompts.orangeKittyNames();
       expect(e).to.deep.equal(["Tiger", "Snickers"])
-    }), it("sortByAge", () => {
+    }), it.only("sortByAge", () => {
       const e = kittyPrompts.sortByAge();
       expect(e).to.deep.equal([{
         name: "Snickers",
@@ -40,7 +40,7 @@ describe("PROTOTYPES", () => {
         age: 1,
         color: "tuxedo"
       }])
-    }), it("growUp", () => {
+    }), it.only("growUp", () => {
       const e = kittyPrompts.growUp();
       expect(e).to.deep.equal([{
         name: "Snickers",
