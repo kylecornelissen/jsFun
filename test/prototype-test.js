@@ -104,7 +104,7 @@ describe("PROTOTYPES", () => {
         studentsPerInstructor: 8
       }])
     })
-  }), describe("Cake Prompts", () => {
+  }), describe.only("Cake Prompts", () => {
     it("stockPerCake", () => {
       const e = cakePrompts.stockPerCake();
       expect(e).to.deep.equal([{
