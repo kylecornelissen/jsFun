@@ -175,7 +175,9 @@ const cakePrompts = {
     //    ..etc
     // ]
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = cakes.map(c => {
+      return {flavor: c.cakeFlavor, inStock: c.inStock}
+    });
     return result;
 
     // Annotation:
@@ -203,7 +205,7 @@ const cakePrompts = {
     // ..etc
     // ]
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = cakes.filter(c => c.inStock > 0);
     return result;
 
     // Annotation:
@@ -214,7 +216,8 @@ const cakePrompts = {
     // Return the total amount of cakes in stock e.g.
     // 59
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = cakes.reduce((acc, c) => acc+= c.inStock, 0);
+
     return result;
 
     // Annotation:
@@ -226,7 +229,11 @@ const cakePrompts = {
     // every cake in the dataset e.g.
     // ['dutch process cocoa', 'toasted sugar', 'smoked sea salt', 'berries', ..etc]
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = [];
+    cakes.forEach(c => c.toppings.forEach(t => {
+      if (!result.includes(t)) result.push(t)
+    }));
+
     return result;
 
     // Annotation:
@@ -244,7 +251,14 @@ const cakePrompts = {
     //    ...etc
     // }
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = cakes.reduce((acc, c) => {
+      c.toppings.forEach(t => {
+        if (!acc[t]) acc[t] = 0;
+        acc[t] += 1;
+      });
+      return acc
+    }, {});
+
     return result;
 
     // Annotation:
