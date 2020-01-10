@@ -17,7 +17,7 @@ const {
 } = require("../prototypes/index");
 
 describe("PROTOTYPES", () => {
-  describe("Kitty Prompts", () => {
+  describe.only("Kitty Prompts", () => {
     it("orangeKittyNames", () => {
       const e = kittyPrompts.orangeKittyNames();
       expect(e).to.deep.equal(["Tiger", "Snickers"])
@@ -60,7 +60,7 @@ describe("PROTOTYPES", () => {
         color: "tuxedo"
       }])
     })
-  }), describe("Club Prompts", () => {
+  }), describe.only("Club Prompts", () => {
     it("membersBelongingToClubs", () => {
       const e = clubPrompts.membersBelongingToClubs({
         Louisa: ["Drama", "Art"],
@@ -87,7 +87,7 @@ describe("PROTOTYPES", () => {
         Christie: ['Newspaper', 'FBLA']
       })
     })
-  }), describe("Mod Prompts", () => {
+  }), describe.only("Mod Prompts", () => {
     it("studentsPerMod", () => {
       const e = modPrompts.studentsPerMod();
       expect(e).to.deep.equal([{
